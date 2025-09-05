@@ -15,145 +15,6 @@
     .hero-bg {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-/* Body and text */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F9FAFB; /* light gray background */
-  color: #1F2937; /* dark gray text */
-}
-
-/* Header background gradient */
-.hero-bg {
-  background: linear-gradient(135deg, #2563EB 0%, #F97316 100%); /* blue to orange */
-}
-
-/* Feature cards */
-.feature-card {
-  background-color: #FFFFFF;
-  color: #1F2937;
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3); /* subtle orange shadow */
-}
-
-/* Certificate styling */
-.certificate {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px;
-  border: 5px solid #10B981; /* green border */
-  border-radius: 15px;
-  background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #1F2937;
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
-}
-
-/* Table headers */
-.result-table th,
-.admin-table th {
-  background-color: #E0E7FF; /* light blue */
-}
-
-/* Buttons */
-.bg-green-500 {
-  background-color: #10B981 !important;
-}
-
-.bg-green-500:hover {
-  background-color: #059669 !important;
-}
-
-.bg-blue-500 {
-  background-color: #2563EB !important;
-}
-
-.bg-blue-500:hover {
-  background-color: #1D4ED8 !important;
-}
-
-.bg-purple-500 {
-  background-color: #F97316 !important;
-}
-
-.bg-purple-500:hover {
-  background-color: #EA580C !important;
-}
-
-.bg-red-500 {
-  background-color: #DC2626 !important;
-}
-
-.bg-red-500:hover {
-  background-color: #B91C1C !important;
-}
-
-.bg-gray-500 {
-  background-color: #6B7280 !important;
-}
-
-.bg-gray-500:hover {
-  background-color: #4B5563 !important;
-}
-
-.text-purple-600 {
-  color: #F97316 !important;
-}
-
-.text-white {
-  color: #FFFFFF !important;
-}
-
-/* Timer text */
-#timer {
-  color: #DC2626; /* red for urgency */
-  font-weight: 600;
-}
-
-/* Navigation buttons */
-#registerBtn {
-  background-color: #10B981;
-  color: white;
-}
-
-#registerBtn:hover {
-  background-color: #059669;
-}
-
-#loginBtn {
-  background-color: white;
-  color: #F97316;
-}
-
-#loginBtn:hover {
-  background-color: #F97316;
-  color: white;
-}
-
-#createQuizBtn {
-  background-color: #2563EB;
-  color: white;
-}
-
-#createQuizBtn:hover {
-  background-color: #1D4ED8;
-}
-
-/* Footer */
-footer {
-  background-color: #1F2937;
-  color: white;
-}
 
     .feature-card {
       transition: transform 0.3s ease;
@@ -162,6 +23,122 @@ footer {
     .feature-card:hover {
       transform: translateY(-5px);
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9FAFB;
+      /* lighter gray background */
+      color: #1F2937;
+      /* dark gray text */
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #2563EB 0%, #F97316 100%);
+      /* blue to orange gradient */
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease;
+      background-color: #FFFFFF;
+      /* white cards */
+      color: #1F2937;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+      /* subtle orange shadow on hover */
+    }
+
+    .certificate {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 5px solid #10B981;
+      /* green border */
+      border-radius: 15px;
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #1F2937;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+      /* green shadow */
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+    }
+
+    .result-table th {
+      background-color: #E0E7FF;
+      /* light blue background for headers */
+    }
+
+    .admin-table th {
+      background-color: #E0E7FF;
+      /* same light blue */
+    }
+
+    /* Buttons */
+    .bg-green-500 {
+      background-color: #10B981 !important;
+      /* accent green */
+    }
+
+    .bg-green-500:hover {
+      background-color: #059669 !important;
+      /* darker green on hover */
+    }
+
+    .bg-blue-500 {
+      background-color: #2563EB !important;
+      /* primary blue */
+    }
+
+    .bg-blue-500:hover {
+      background-color: #1D4ED8 !important;
+      /* darker blue on hover */
+    }
+
+    .bg-purple-500 {
+      background-color: #F97316 !important;
+      /* secondary orange */
+    }
+
+    .bg-purple-500:hover {
+      background-color: #EA580C !important;
+      /* darker orange on hover */
+    }
+
+    .bg-red-500 {
+      background-color: #DC2626 !important;
+      /* red for admin buttons */
+    }
+
+    .bg-red-500:hover {
+      background-color: #B91C1C !important;
+    }
+
+    .bg-gray-500 {
+      background-color: #6B7280 !important;
+      /* medium gray */
+    }
+
+    .bg-gray-500:hover {
+      background-color: #4B5563 !important;
+    }
+
+    .text-purple-600 {
+      color: #F97316 !important;
+      /* orange text */
+    }
+
+    .text-white {
+      color: #FFFFFF !important;
+    }
+
 
     .certificate-photo {
       max-width: 800px;
@@ -189,6 +166,154 @@ footer {
       margin: 0 0 12px 0;
     }
 
+    /* Body and text */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9FAFB;
+      /* light gray background */
+      color: #1F2937;
+      /* dark gray text */
+    }
+
+    /* Header background gradient */
+    .hero-bg {
+      background: linear-gradient(135deg, #2563EB 0%, #F97316 100%);
+      /* blue to orange */
+    }
+
+    /* Feature cards */
+    .feature-card {
+      background-color: #FFFFFF;
+      color: #1F2937;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+      /* subtle orange shadow */
+    }
+
+    /* Certificate styling */
+    .certificate {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 5px solid #10B981;
+      /* green border */
+      border-radius: 15px;
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #1F2937;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Table headers */
+    .result-table th,
+    .admin-table th {
+      background-color: #E0E7FF;
+      /* light blue */
+    }
+
+    /* Buttons */
+    .bg-green-500 {
+      background-color: #10B981 !important;
+    }
+
+    .bg-green-500:hover {
+      background-color: #059669 !important;
+    }
+
+    .bg-blue-500 {
+      background-color: #2563EB !important;
+    }
+
+    .bg-blue-500:hover {
+      background-color: #1D4ED8 !important;
+    }
+
+    .bg-purple-500 {
+      background-color: #F97316 !important;
+    }
+
+    .bg-purple-500:hover {
+      background-color: #EA580C !important;
+    }
+
+    .bg-red-500 {
+      background-color: #DC2626 !important;
+    }
+
+    .bg-red-500:hover {
+      background-color: #B91C1C !important;
+    }
+
+    .bg-gray-500 {
+      background-color: #6B7280 !important;
+    }
+
+    .bg-gray-500:hover {
+      background-color: #4B5563 !important;
+    }
+
+    .text-purple-600 {
+      color: #F97316 !important;
+    }
+
+    .text-white {
+      color: #FFFFFF !important;
+    }
+
+    /* Timer text */
+    #timer {
+      color: #DC2626;
+      /* red for urgency */
+      font-weight: 600;
+    }
+
+    /* Navigation buttons */
+    #registerBtn {
+      background-color: #10B981;
+      color: white;
+    }
+
+    #registerBtn:hover {
+      background-color: #059669;
+    }
+
+    #loginBtn {
+      background-color: white;
+      color: #F97316;
+    }
+
+    #loginBtn:hover {
+      background-color: #F97316;
+      color: white;
+    }
+
+    #createQuizBtn {
+      background-color: #2563EB;
+      color: white;
+    }
+
+    #createQuizBtn:hover {
+      background-color: #1D4ED8;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1F2937;
+      color: white;
+    }
+
+
     .result-table {
       width: 100%;
       border-collapse: collapse;
@@ -204,57 +329,6 @@ footer {
     .result-table th {
       background-color: #f3f4f6;
     }
-  
- 
-/* Buttons */
-.bg-green-500 {
-  background-color: #10B981 !important; /* accent green */
-}
-
-.bg-green-500:hover {
-  background-color: #059669 !important; /* darker green on hover */
-}
-
-.bg-blue-500 {
-  background-color: #2563EB !important; /* primary blue */
-}
-
-.bg-blue-500:hover {
-  background-color: #1D4ED8 !important; /* darker blue on hover */
-}
-
-.bg-purple-500 {
-  background-color: #F97316 !important; /* secondary orange */
-}
-
-.bg-purple-500:hover {
-  background-color: #EA580C !important; /* darker orange on hover */
-}
-
-.bg-red-500 {
-  background-color: #DC2626 !important; /* red for admin buttons */
-}
-
-.bg-red-500:hover {
-  background-color: #B91C1C !important;
-}
-
-.bg-gray-500 {
-  background-color: #6B7280 !important; /* medium gray */
-}
-
-.bg-gray-500:hover {
-  background-color: #4B5563 !important;
-}
-
-.text-purple-600 {
-  color: #F97316 !important; /* orange text */
-}
-
-.text-white {
-  color: #FFFFFF !important;
-}
-
 
     .hidden {
       display: none;
@@ -310,7 +384,7 @@ footer {
       <h3 class="text-3xl font-bold text-center mb-8">Key Features</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="feature-card bg-white p-6 rounded-lg shadow-md"> <img
-            src="https://img.freepik.com/premium-vector/student-chooses-correct-answer-test-online-quiz-e-learning-distance-education-concept-horizontal_48369-47035.jpg"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f57b7ff-58b4-4003-998f-6ed697e36403.png"
             alt="User registration form with secure login fields for students and teachers"
             class="w-full h-32 object-cover mb-4 rounded" />
           <h4 class="text-xl font-semibold mb-2">User Registration & Login</h4>
@@ -481,135 +555,135 @@ footer {
       <p>© 2025 EduQuiz System. All rights reserved. Designed for educational institutions.</p>
     </div>
   </footer> <!-- JavaScript -->
- <script>
-        // Global variables
-        let currentUser = null;
-        let currentQuiz = null;
-        let quizTimer = null;
-        let timeLeft = 0;
-        let questionsArray = [];
+  <script>
+    // Global variables
+    let currentUser = null;
+    let currentQuiz = null;
+    let quizTimer = null;
+    let timeLeft = 0;
+    let questionsArray = [];
 
-        // Initialize on load
-        window.onload = init;
+    // Initialize on load
+    window.onload = init;
 
-        function init() {
-            loadData();
-            checkLoginStatus();
-            displayQuizzes();
-            displayResults();
-        }
+    function init() {
+      loadData();
+      checkLoginStatus();
+      displayQuizzes();
+      displayResults();
+    }
 
-        // Data management (simulating localStorage as backend)
-        function loadData() {
-            // In a real backend, this would be API calls
-            if (!localStorage.getItem('eduquiz_users')) localStorage.setItem('eduquiz_users', JSON.stringify([]));
-            if (!localStorage.getItem('eduquiz_quizzes')) localStorage.setItem('eduquiz_quizzes', JSON.stringify([]));
-            if (!localStorage.getItem('eduquiz_results')) localStorage.setItem('eduquiz_results', JSON.stringify([]));
-        }
+    // Data management (simulating localStorage as backend)
+    function loadData() {
+      // In a real backend, this would be API calls
+      if (!localStorage.getItem('eduquiz_users')) localStorage.setItem('eduquiz_users', JSON.stringify([]));
+      if (!localStorage.getItem('eduquiz_quizzes')) localStorage.setItem('eduquiz_quizzes', JSON.stringify([]));
+      if (!localStorage.getItem('eduquiz_results')) localStorage.setItem('eduquiz_results', JSON.stringify([]));
+    }
 
-        function getUsers() { return JSON.parse(localStorage.getItem('eduquiz_users')); }
-        function saveUsers(users) { localStorage.setItem('eduquiz_users', JSON.stringify(users)); }
+    function getUsers() { return JSON.parse(localStorage.getItem('eduquiz_users')); }
+    function saveUsers(users) { localStorage.setItem('eduquiz_users', JSON.stringify(users)); }
 
-        function getQuizzes() { return JSON.parse(localStorage.getItem('eduquiz_quizzes')); }
-        function saveQuizzes(quizzes) { localStorage.setItem('eduquiz_quizzes', JSON.stringify(quizzes)); }
+    function getQuizzes() { return JSON.parse(localStorage.getItem('eduquiz_quizzes')); }
+    function saveQuizzes(quizzes) { localStorage.setItem('eduquiz_quizzes', JSON.stringify(quizzes)); }
 
-        function getResults() { return JSON.parse(localStorage.getItem('eduquiz_results')); }
-        function saveResults(results) { localStorage.setItem('eduquiz_results', JSON.stringify(results)); }
+    function getResults() { return JSON.parse(localStorage.getItem('eduquiz_results')); }
+    function saveResults(results) { localStorage.setItem('eduquiz_results', JSON.stringify(results)); }
 
-        function checkLoginStatus() {
-            const user = JSON.parse(localStorage.getItem('eduquiz_currentUser') || 'null');
-            if (user) loginSuccess(user);
-        }
+    function checkLoginStatus() {
+      const user = JSON.parse(localStorage.getItem('eduquiz_currentUser') || 'null');
+      if (user) loginSuccess(user);
+    }
 
-        // Event listeners
-        document.getElementById('registerBtn').onclick = () => showSection('userRegistration');
-        document.getElementById('loginBtn').onclick = () => showSection('userRegistration');
-        document.getElementById('logoutBtn').onclick = logout;
-        document.getElementById('adminPanelBtn').onclick = () => showSection('adminPanel');
-        document.getElementById('viewQuizzesBtn').onclick = () => showSection('quizList');
-        document.getElementById('switchToLogin').onclick = () => {
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('loginForm').classList.remove('hidden');
-        };
-        document.getElementById('addQuestionBtn').onclick = addQuestion;
+    // Event listeners
+    document.getElementById('registerBtn').onclick = () => showSection('userRegistration');
+    document.getElementById('loginBtn').onclick = () => showSection('userRegistration');
+    document.getElementById('logoutBtn').onclick = logout;
+    document.getElementById('adminPanelBtn').onclick = () => showSection('adminPanel');
+    document.getElementById('viewQuizzesBtn').onclick = () => showSection('quizList');
+    document.getElementById('switchToLogin').onclick = () => {
+      document.getElementById('registerForm').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+    };
+    document.getElementById('addQuestionBtn').onclick = addQuestion;
 
-        // Forms
-        document.getElementById('registerForm').onsubmit = registerUser;
-        document.getElementById('loginForm').onsubmit = loginUser;
-        document.getElementById('quizForm').onsubmit = createQuiz;
-        document.getElementById('submitQuizBtn').onclick = submitQuiz;
+    // Forms
+    document.getElementById('registerForm').onsubmit = registerUser;
+    document.getElementById('loginForm').onsubmit = loginUser;
+    document.getElementById('quizForm').onsubmit = createQuiz;
+    document.getElementById('submitQuizBtn').onclick = submitQuiz;
 
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('main section');
-            sections.forEach(s => s.classList.add('hidden'));
-            document.getElementById(sectionId).classList.remove('hidden');
-        }
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(s => s.classList.add('hidden'));
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
 
-        // Registration
-        function registerUser(e) {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            const role = document.getElementById('regRole').value;
+    // Registration
+    function registerUser(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      const role = document.getElementById('regRole').value;
 
-            const users = getUsers();
-            if (users.find(u => u.email === email)) {
-                alert('User already exists!');
-                return;
-            }
-            const newUser = { id: Date.now(), name, email, password, role };
-            users.push(newUser);
-            saveUsers(users);
-            alert('Registration successful! Please login.');
-            document.getElementById('registerForm').reset();
-        }
+      const users = getUsers();
+      if (users.find(u => u.email === email)) {
+        alert('User already exists!');
+        return;
+      }
+      const newUser = { id: Date.now(), name, email, password, role };
+      users.push(newUser);
+      saveUsers(users);
+      alert('Registration successful! Please login.');
+      document.getElementById('registerForm').reset();
+    }
 
-        // Login
-        function loginUser(e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+    // Login
+    function loginUser(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
 
-            const users = getUsers();
-            const user = users.find(u => u.email === email && u.password === password);
-            if (!user) {
-                alert('Invalid credentials!');
-                return;
-            }
-            loginSuccess(user);
-        }
+      const users = getUsers();
+      const user = users.find(u => u.email === email && u.password === password);
+      if (!user) {
+        alert('Invalid credentials!');
+        return;
+      }
+      loginSuccess(user);
+    }
 
-        function loginSuccess(user) {
-            currentUser = user;
-            localStorage.setItem('eduquiz_currentUser', JSON.stringify(user));
-            document.getElementById('navActions').classList.add('hidden');
-            document.getElementById('welcomeUser').textContent = `Welcome, ${user.name}!`;
-            document.getElementById('userNav').classList.remove('hidden');
-            if (user.role === 'admin') document.getElementById('adminNav').classList.remove('hidden');
-            if (user.role === 'teacher') document.getElementById('createQuizBtn').classList.remove('hidden');
-            hideAllSections();
-            showSection('quizList');
-        }
+    function loginSuccess(user) {
+      currentUser = user;
+      localStorage.setItem('eduquiz_currentUser', JSON.stringify(user));
+      document.getElementById('navActions').classList.add('hidden');
+      document.getElementById('welcomeUser').textContent = `Welcome, ${user.name}!`;
+      document.getElementById('userNav').classList.remove('hidden');
+      if (user.role === 'admin') document.getElementById('adminNav').classList.remove('hidden');
+      if (user.role === 'teacher') document.getElementById('createQuizBtn').classList.remove('hidden');
+      hideAllSections();
+      showSection('quizList');
+    }
 
-        function logout() {
-            localStorage.removeItem('eduquiz_currentUser');
-            currentUser = null;
-            document.getElementById('navActions').classList.remove('hidden');
-            document.getElementById('userNav').classList.add('hidden');
-            document.getElementById('adminNav').classList.add('hidden');
-            document.getElementById('createQuizBtn').classList.add('hidden');
-            hideAllSections();
-            showSection('features');
-        }
+    function logout() {
+      localStorage.removeItem('eduquiz_currentUser');
+      currentUser = null;
+      document.getElementById('navActions').classList.remove('hidden');
+      document.getElementById('userNav').classList.add('hidden');
+      document.getElementById('adminNav').classList.add('hidden');
+      document.getElementById('createQuizBtn').classList.add('hidden');
+      hideAllSections();
+      showSection('features');
+    }
 
-        // Quiz Creation
-        function addQuestion() {
-            const container = document.getElementById('questionsContainer');
-            const questionCount = container.querySelectorAll('.question-item').length + 1;
-            const questionItem = document.createElement('div');
-            questionItem.className = 'question-item mb-6';
-            questionItem.innerHTML = `
+    // Quiz Creation
+    function addQuestion() {
+      const container = document.getElementById('questionsContainer');
+      const questionCount = container.querySelectorAll('.question-item').length + 1;
+      const questionItem = document.createElement('div');
+      questionItem.className = 'question-item mb-6';
+      questionItem.innerHTML = `
                 <label class="block text-sm font-medium mb-2">Question ${questionCount}</label>
                 <input type="text" placeholder="Enter question" class="w-full px-4 py-2 border rounded mb-2 question-text" required>
                 <input type="text" placeholder="Option A" class="w-full px-4 py-2 border rounded mb-2 option-a" required>
@@ -618,241 +692,241 @@ footer {
                 <input type="text" placeholder="Option D" class="w-full px-4 py-2 border rounded mb-2 option-d" required>
                 <select class="w-full px-4 py-2 border rounded correct"><option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option></select>
             `;
-            container.appendChild(questionItem);
-        }
+      container.appendChild(questionItem);
+    }
 
-        function createQuiz(e) {
-            e.preventDefault();
-            if (!currentUser || currentUser.role !== 'teacher') {
-                alert('Only teachers can create quizzes!');
-                return;
-            }
-            const title = document.getElementById('quizTitle').value;
-            const subject = document.getElementById('quizSubject').value;
-            const timeLimit = parseInt(document.getElementById('quizTime').value);
+    function createQuiz(e) {
+      e.preventDefault();
+      if (!currentUser || currentUser.role !== 'teacher') {
+        alert('Only teachers can create quizzes!');
+        return;
+      }
+      const title = document.getElementById('quizTitle').value;
+      const subject = document.getElementById('quizSubject').value;
+      const timeLimit = parseInt(document.getElementById('quizTime').value);
 
-            questionsArray = [];
-            document.querySelectorAll('.question-item').forEach(item => {
-                questionsArray.push({
-                    question: item.querySelector('.question-text').value,
-                    options: {
-                        a: item.querySelector('.option-a').value,
-                        b: item.querySelector('.option-b').value,
-                        c: item.querySelector('.option-c').value,
-                        d: item.querySelector('.option-d').value,
-                    },
-                    correct: item.querySelector('.correct').value
-                });
-            });
+      questionsArray = [];
+      document.querySelectorAll('.question-item').forEach(item => {
+        questionsArray.push({
+          question: item.querySelector('.question-text').value,
+          options: {
+            a: item.querySelector('.option-a').value,
+            b: item.querySelector('.option-b').value,
+            c: item.querySelector('.option-c').value,
+            d: item.querySelector('.option-d').value,
+          },
+          correct: item.querySelector('.correct').value
+        });
+      });
 
-            const quiz = { id: Date.now(), title, subject, timeLimit, questions: questionsArray, creator: currentUser.email };
-            const quizzes = getQuizzes();
-            quizzes.push(quiz);
-            saveQuizzes(quizzes);
-            alert('Quiz created successfully!');
-            displayQuizzes();
-            hideAllSections();
-            showSection('quizList');
-        }
+      const quiz = { id: Date.now(), title, subject, timeLimit, questions: questionsArray, creator: currentUser.email };
+      const quizzes = getQuizzes();
+      quizzes.push(quiz);
+      saveQuizzes(quizzes);
+      alert('Quiz created successfully!');
+      displayQuizzes();
+      hideAllSections();
+      showSection('quizList');
+    }
 
-        // Display Quizzes
-        function displayQuizzes() {
-            const quizzes = getQuizzes();
-            const container = document.getElementById('quizzesContainer');
-            container.innerHTML = '';
-            quizzes.forEach(quiz => {
-                const card = document.createElement('div');
-                card.className = 'bg-white p-6 rounded-lg shadow-md';
-                card.innerHTML = `
+    // Display Quizzes
+    function displayQuizzes() {
+      const quizzes = getQuizzes();
+      const container = document.getElementById('quizzesContainer');
+      container.innerHTML = '';
+      quizzes.forEach(quiz => {
+        const card = document.createElement('div');
+        card.className = 'bg-white p-6 rounded-lg shadow-md';
+        card.innerHTML = `
                     <h4 class="text-xl font-semibold mb-2">${quiz.title}</h4>
                     <p class="mb-2">Subject: ${quiz.subject}</p>
                     <p class="mb-4">Questions: ${quiz.questions.length}</p>
                     <button class="take-quiz-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded" data-quiz-id="${quiz.id}">Take Quiz</button>
                 `;
-                container.appendChild(card);
-            });
+        container.appendChild(card);
+      });
 
-            document.querySelectorAll('.take-quiz-btn').forEach(btn => {
-                btn.onclick = function () { startQuiz(parseInt(this.dataset.quizId)); };
-            });
-        }
+      document.querySelectorAll('.take-quiz-btn').forEach(btn => {
+        btn.onclick = function () { startQuiz(parseInt(this.dataset.quizId)); };
+      });
+    }
 
-        // Take Quiz
-        function startQuiz(quizId) {
-            currentQuiz = getQuizzes().find(q => q.id === quizId);
-            if (!currentQuiz) return;
+    // Take Quiz
+    function startQuiz(quizId) {
+      currentQuiz = getQuizzes().find(q => q.id === quizId);
+      if (!currentQuiz) return;
 
-            questionsArray = [...currentQuiz.questions];
-            shuffleArray(questionsArray); // Random order
+      questionsArray = [...currentQuiz.questions];
+      shuffleArray(questionsArray); // Random order
 
-            document.getElementById('quizTitleHeader').textContent = currentQuiz.title;
-            timeLeft = currentQuiz.timeLimit * 60;
-            updateTimer();
-            quizTimer = setInterval(updateTimer, 1000);
+      document.getElementById('quizTitleHeader').textContent = currentQuiz.title;
+      timeLeft = currentQuiz.timeLimit * 60;
+      updateTimer();
+      quizTimer = setInterval(updateTimer, 1000);
 
-            const form = document.getElementById('quizTakingForm');
-            form.innerHTML = '';
-            questionsArray.forEach((q, index) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'mb-6';
-                questionDiv.innerHTML = `
+      const form = document.getElementById('quizTakingForm');
+      form.innerHTML = '';
+      questionsArray.forEach((q, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'mb-6';
+        questionDiv.innerHTML = `
                     <h5 class="text-lg mb-4">${index + 1}. ${q.question}</h5>
                     <label class="block mb-2"><input type="radio" name="q${index}" value="a" class="mr-2" required>A) ${q.options.a}</label>
                     <label class="block mb-2"><input type="radio" name="q${index}" value="b" class="mr-2" required>B) ${q.options.b}</label>
                     <label class="block mb-2"><input type="radio" name="q${index}" value="c" class="mr-2" required>C) ${q.options.c}</label>
                     <label class="block mb-2"><input type="radio" name="q${index}" value="d" class="mr-2" required>D) ${q.options.d}</label>
                 `;
-                form.appendChild(questionDiv);
-            });
+        form.appendChild(questionDiv);
+      });
 
-            showSection('takeQuiz');
-        }
+      showSection('takeQuiz');
+    }
 
-        function updateTimer() {
-            if (timeLeft <= 0) {
-                clearInterval(quizTimer);
-                submitQuiz();
-                return;
-            }
-            timeLeft--;
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('timeLeft').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
+    function updateTimer() {
+      if (timeLeft <= 0) {
+        clearInterval(quizTimer);
+        submitQuiz();
+        return;
+      }
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('timeLeft').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
 
-        function submitQuiz() {
-            if (quizTimer) clearInterval(quizTimer);
-            const answers = [];
-            for (let i = 0; i < questionsArray.length; i++) {
-                const question = questionsArray[i];
-                const answer = new FormData(document.getElementById('quizTakingForm')).get(`q${i}`);
-                answers.push({ questionIndex: i, givenAnswer: answer });
-            }
+    function submitQuiz() {
+      if (quizTimer) clearInterval(quizTimer);
+      const answers = [];
+      for (let i = 0; i < questionsArray.length; i++) {
+        const question = questionsArray[i];
+        const answer = new FormData(document.getElementById('quizTakingForm')).get(`q${i}`);
+        answers.push({ questionIndex: i, givenAnswer: answer });
+      }
 
-            let correct = 0;
-            answers.forEach((ans, idx) => {
-                if (ans.givenAnswer === questionsArray[idx].correct) correct++;
-            });
+      let correct = 0;
+      answers.forEach((ans, idx) => {
+        if (ans.givenAnswer === questionsArray[idx].correct) correct++;
+      });
 
-            const score = correct;
-            const total = questionsArray.length;
-            const percentage = Math.round((correct / total) * 100);
-            const status = percentage >= 50 ? 'Passed' : 'Failed';
+      const score = correct;
+      const total = questionsArray.length;
+      const percentage = Math.round((correct / total) * 100);
+      const status = percentage >= 50 ? 'Passed' : 'Failed';
 
-            const result = { quizId: currentQuiz.id, userEmail: currentUser.email, score, total, percentage, status, date: new Date().toISOString() };
-            const results = getResults();
-            results.push(result);
-            saveResults(results);
+      const result = { quizId: currentQuiz.id, userEmail: currentUser.email, score, total, percentage, status, date: new Date().toISOString() };
+      const results = getResults();
+      results.push(result);
+      saveResults(results);
 
-            // Save answers for security/audit
-            const audit = { quizId: currentQuiz.id, userId: currentUser.id, answers, timeStamp: new Date().toISOString() };
-            const audits = JSON.parse(localStorage.getItem('eduquiz_audits') || '[]');
-            audits.push(audit);
-            localStorage.setItem('eduquiz_audits', JSON.stringify(audits));
+      // Save answers for security/audit
+      const audit = { quizId: currentQuiz.id, userId: currentUser.id, answers, timeStamp: new Date().toISOString() };
+      const audits = JSON.parse(localStorage.getItem('eduquiz_audits') || '[]');
+      audits.push(audit);
+      localStorage.setItem('eduquiz_audits', JSON.stringify(audits));
 
-            displayResults();
-            generateCertificate(currentQuiz, percentage, status);
-            showSection('results');
-            showSection('certificate');
-        }
+      displayResults();
+      generateCertificate(currentQuiz, percentage, status);
+      showSection('results');
+      showSection('certificate');
+    }
 
-        // Shuffle Array for Random Questions
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
+    // Shuffle Array for Random Questions
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
-        // Display Results
-        function displayResults() {
-            const results = getResults().filter(r => r.userEmail === currentUser?.email);
-            const tbody = document.getElementById('resultTableBody');
-            tbody.innerHTML = '';
-            results.forEach(result => {
-                const quizzes = getQuizzes();
-                const quiz = quizzes.find(q => q.id === result.quizId);
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
+    // Display Results
+    function displayResults() {
+      const results = getResults().filter(r => r.userEmail === currentUser?.email);
+      const tbody = document.getElementById('resultTableBody');
+      tbody.innerHTML = '';
+      results.forEach(result => {
+        const quizzes = getQuizzes();
+        const quiz = quizzes.find(q => q.id === result.quizId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
                     <td>${quiz ? quiz.title : 'Unknown'}</td>
                     <td>${result.score}/${result.total}</td>
                     <td>${result.percentage}%</td>
                     <td>${result.status}</td>
                     <td><button class="download-result bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" data-result-id="${result.id}">Download</button></td>
                 `;
-                tbody.appendChild(tr);
-            });
+        tbody.appendChild(tr);
+      });
 
-            // Admin Panel Updates
-            if (currentUser && currentUser.role === 'admin') {
-                const usersTable = document.getElementById('usersTable');
-                usersTable.innerHTML = '';
-                getUsers().forEach(user => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${user.name}</td><td>${user.email}</td><td>${user.role}</td>`;
-                    usersTable.appendChild(tr);
-                });
+      // Admin Panel Updates
+      if (currentUser && currentUser.role === 'admin') {
+        const usersTable = document.getElementById('usersTable');
+        usersTable.innerHTML = '';
+        getUsers().forEach(user => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${user.name}</td><td>${user.email}</td><td>${user.role}</td>`;
+          usersTable.appendChild(tr);
+        });
 
-                const quizBankList = document.getElementById('quizBankList');
-                quizBankList.innerHTML = '';
-                getQuizzes().forEach(quiz => {
-                    const li = document.createElement('li');
-                    li.textContent = `${quiz.title} (${quiz.questions.length} questions)`;
-                    quizBankList.appendChild(li);
-                });
+        const quizBankList = document.getElementById('quizBankList');
+        quizBankList.innerHTML = '';
+        getQuizzes().forEach(quiz => {
+          const li = document.createElement('li');
+          li.textContent = `${quiz.title} (${quiz.questions.length} questions)`;
+          quizBankList.appendChild(li);
+        });
 
-                const adminResultsTable = document.getElementById('adminResultsTable');
-                adminResultsTable.innerHTML = '';
-                results.forEach(result => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${result.userEmail}</td><td>${quiz ? quiz.title : 'Unknown'}</td><td>${result.score}/${result.total}</td><td>${result.status}</td>`;
-                    adminResultsTable.appendChild(tr);
-                });
-            }
-        }
+        const adminResultsTable = document.getElementById('adminResultsTable');
+        adminResultsTable.innerHTML = '';
+        results.forEach(result => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${result.userEmail}</td><td>${quiz ? quiz.title : 'Unknown'}</td><td>${result.score}/${result.total}</td><td>${result.status}</td>`;
+          adminResultsTable.appendChild(tr);
+        });
+      }
+    }
 
-        // Generate Certificate
-        function generateCertificate(quiz, percentage, status) {
-            const certificateText = `This certifies that ${currentUser.name} has completed the Online Exam in ${quiz.subject} with ${percentage}% score and status: ${status}.`;
-            const certificateDate = `Date: ${new Date().toLocaleDateString()}`;
+    // Generate Certificate
+    function generateCertificate(quiz, percentage, status) {
+      const certificateText = `This certifies that ${currentUser.name} has completed the Online Exam in ${quiz.subject} with ${percentage}% score and status: ${status}.`;
+      const certificateDate = `Date: ${new Date().toLocaleDateString()}`;
 
-            document.getElementById('certificateText').textContent = certificateText;
-            document.getElementById('certificateDate').textContent = certificateDate;
-        }
- // Download Certificate (simple text download)
-       function downloadCertificate() {
-            const content = document.getElementById('certificateContent').innerText;
-            const blob = new Blob([content], { type: 'txt/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Certificate.txt';
-            link.click();
+      document.getElementById('certificateText').textContent = certificateText;
+      document.getElementById('certificateDate').textContent = certificateDate;
+    }
+    // Download Certificate (simple text download)
+    function downloadCertificate() {
+      const content = document.getElementById('certificateContent').innerText;
+      const blob = new Blob([content], { type: 'txt/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Certificate.txt';
+      link.click();
 
-}
+    }
 
-        function hideAllSections() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(s => s.classList.add('hidden'));
-        }
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('download-result')) {
-                const tr = e.target.closest('tr');
-                const cells = tr.querySelectorAll('td');
-                const resultText = `
+    function hideAllSections() {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(s => s.classList.add('hidden'));
+    }
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('download-result')) {
+        const tr = e.target.closest('tr');
+        const cells = tr.querySelectorAll('td');
+        const resultText = `
 Quiz: ${cells[0].innerText}
 Score: ${cells[1].innerText}
 Percentage: ${cells[2].innerText}
 Status: ${cells[3].innerText}
         `;
-                const blob = new Blob([resultText], { type: 'text/plain' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'Result.txt';
-                link.click();
-            }
-        });
-    </script>
-</script>
+        const blob = new Blob([resultText], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Result.txt';
+        link.click();
+      }
+    });
+  </script>
+  </script>
 
 </body>
 
