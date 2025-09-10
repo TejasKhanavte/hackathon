@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Examination & Certificate System</title>
-  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
+   body {
       font-family: 'Inter', sans-serif;
     }
 
@@ -290,11 +289,11 @@
 
     #loginBtn {
       background-color: white;
-       color: #171413;
+      color: #171413;
     }
 
     #loginBtn:hover {
-      background-color: #F97316;
+      background-color: #222120;
       color: white;
     }
 
@@ -352,34 +351,42 @@
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900"> <!-- Header -->
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
   <header class="hero-bg text-white">
     <div class="container mx-auto px-4 py-16">
       <nav class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold">EduQuiz System</h1>
-        <div id="navActions"> <button id="registerBtn"
-            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-4">Register</button> <button
-            id="loginBtn" class="bg-white text-purple-600 px-4 py-2 rounded">Login</button> </div>
-        <div id="userNav" class="hidden"> <span id="welcomeUser"></span> <button id="logoutBtn"
-            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ml-4">Logout</button> </div>
-        <div id="adminNav" class="hidden"> <button id="adminPanelBtn"
-            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Admin Panel</button> </div>
+        <div id="navActions">
+          <button id="registerBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-4">Register</button>
+          <button id="loginBtn" class="bg-white text-purple-600 px-4 py-2 rounded">Login</button>
+        </div>
+        <div id="userNav" class="hidden">
+          <span id="welcomeUser"></span>
+          <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ml-4">Logout</button>
+        </div>
+        <div id="adminNav" class="hidden">
+          <button id="adminPanelBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Admin Panel</button>
+        </div>
       </nav>
-      <div class="text-center"> <img
-          src="https://img.freepik.com/premium-vector/student-chooses-correct-answer-test-online-quiz-e-learning-distance-education-concept-horizontal_48369-47035.jpg"
-          alt="Bright modern classroom with students taking online exams on laptops and tablets in a clean, well-lit study environment"
-          class="mx-auto w-full max-w-lg mb-6 rounded-lg shadow-lg" />
+
+      <div class="text-center">
         <h2 class="text-4xl font-extrabold mb-4">Revolutionize Education with Online Exams & Certificates</h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">Empower colleges, schools, and coaching centers with seamless MCQ
-          tests, instant results, and digital certificates for students.</p> <button id="viewQuizzesBtn"
-          class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300">View
-          Quizzes</button> <button id="createQuizBtn"
-          class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300 ml-4 hidden"
-          onclick="showSection('quizCreation')">Create Quiz</button>
+        <p class="text-lg mb-8 max-w-2xl mx-auto">
+          Empower colleges, schools, and coaching centers with seamless MCQ tests, instant results, and digital certificates.
+        </p>
+        <button id="viewQuizzesBtn" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold">View Quizzes</button>
+        <button id="createQuizBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold ml-4 hidden" onclick="showSection('quizCreation')">Create Quiz</button>
+        <!-- NEW BUTTON -->
+        <button onclick="showStudyMaterials()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded ml-4">Study Materials</button>
       </div>
     </div>
-  </header> <!-- Main Content -->
-  <main class="container mx-auto px-4 py-16"> <!-- Features Section -->
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-16">
+    <!-- Existing Sections (Features, User Registration, Quiz, Results, Admin) -->
+      <!-- Features Section -->
     <section id="features" class="mb-16">
       <h3 class="text-3xl font-bold text-center mb-8">Key Features</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -549,14 +556,41 @@
         </div>
       </div>
     </section>
-  </main> <!-- Footer -->
+
+    <!-- Study Materials Section -->
+    <section id="studyMaterials" class="mb-16 hidden">
+      <h3 class="text-3xl font-bold text-center mb-8">Study Materials</h3>
+
+      <!-- Teacher Upload Form -->
+      <div id="uploadSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+        <form id="uploadForm">
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-2">Upload File</label>
+            <input type="file" id="studyFile" class="w-full border p-2 rounded" required>
+          </div>
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Upload</button>
+        </form>
+      </div>
+
+      <!-- File List -->
+      <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
+        <h4 class="text-xl font-semibold mb-4">Available Files</h4>
+        <ul id="fileList" class="list-disc list-inside"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8">
     <div class="container mx-auto px-4 text-center">
-      <p>© 2025 EduQuiz System. All rights reserved. Designed for educational institutions.</p>
+      <p>© 2025 EduQuiz System. All rights reserved.</p>
     </div>
-  </footer> <!-- JavaScript -->
+  </footer>
+
+  <!-- JavaScript -->
   <script>
-    // Global variables
+    /* --- Your existing JavaScript code --- */
+     // Global variables
     let currentUser = null;
     let currentQuiz = null;
     let quizTimer = null;
@@ -925,11 +959,89 @@ Status: ${cells[3].innerText}
         link.click();
       }
     });
+  
+    // File storage in localStorage
+    function getFiles() { return JSON.parse(localStorage.getItem('eduquiz_files') || '[]'); }
+    function saveFiles(files) { localStorage.setItem('eduquiz_files', JSON.stringify(files)); }
+
+    // Show Study Materials Section
+    function showStudyMaterials() {
+      hideAllSections();
+      document.getElementById('studyMaterials').classList.remove('hidden');
+      if (currentUser?.role === 'teacher') {
+        document.getElementById('uploadSection').classList.remove('hidden');
+      } else {
+        document.getElementById('uploadSection').classList.add('hidden');
+      }
+      displayFiles();
+    }
+
+    // Upload File (Teachers only)
+    document.getElementById('uploadForm').onsubmit = function (e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('studyFile');
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const files = getFiles();
+        files.push({
+          id: Date.now(),
+          name: file.name,
+          type: file.type,
+          data: event.target.result,
+          uploader: currentUser.name
+        });
+        saveFiles(files);
+        alert('File uploaded successfully!');
+        fileInput.value = '';
+        displayFiles();
+      };
+      reader.readAsDataURL(file);
+    };
+     // Delete File (Teachers only)
+    function deleteFile(fileId) {
+      let files = getFiles();
+      files = files.filter(file => file.id !== fileId);
+      saveFiles(files);
+      displayFiles();
+    }
+
+     // Display Files
+    function displayFiles() {
+      const files = getFiles();
+      const list = document.getElementById('fileList');
+      list.innerHTML = '';
+      files.forEach(file => {
+        const li = document.createElement('li');
+        li.classList.add("mb-2");
+        li.innerHTML = `
+          <span class="font-medium">${file.name}</span> 
+          (Uploaded by ${file.uploader})
+          <a href="${file.data}" download="${file.name}" class="ml-2 text-blue-600 underline">Download</a>
+        `;
+
+        // If teacher, add delete button
+        if (currentUser?.role === 'teacher') {
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "Delete";
+          deleteBtn.className = "ml-2 bg-red-500 text-white px-2 py-1 rounded text-sm hover:bg-red-600";
+          deleteBtn.onclick = () => deleteFile(file.id);
+          li.appendChild(deleteBtn);
+        }
+
+        list.appendChild(li);
+      });
+    }
+
+    // Hide all sections
+    function hideAllSections() {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(s => s.classList.add('hidden'));
+    }
   </script>
   </script>
 
 </body>
-
 </html>
-</content>
-</create_file>
