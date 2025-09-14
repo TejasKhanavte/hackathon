@@ -4,10 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Examination & Certificate System</title>
+  <title>EduQuiz System</title>
+  <link rel="website icon" type="jpg" href="logo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-   body {
+    /* Your CSS styles as before... (keep as is) */
+    body {
       font-family: 'Inter', sans-serif;
     }
 
@@ -56,7 +59,7 @@
       border: 5px solid #10B981;
       /* green border */
       border-radius: 15px;
-      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
+      background-image: url('back.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -145,7 +148,7 @@
       padding: 40px;
       border: 5px solid #10b981;
       border-radius: 15px;
-      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
+      background-image: url('back.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -201,7 +204,7 @@
       border: 5px solid #10B981;
       /* green border */
       border-radius: 15px;
-      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80');
+      background-image: url('back.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -348,17 +351,73 @@
     .admin-table th {
       background-color: #f3f4f6;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+      color: #1f2937;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.4);
+    }
+
+    button {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #timer {
+      color: #dc2626;
+      font-weight: 600;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
-  <!-- Header -->
+  <!-- HEADER & NAVIGATION -->
   <header class="hero-bg text-white">
     <div class="container mx-auto px-4 py-16">
       <nav class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold">EduQuiz System</h1>
         <div id="navActions">
-          <button id="registerBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-4">Register</button>
+          <button id="registerBtn"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-4">Register</button>
           <button id="loginBtn" class="bg-white text-purple-600 px-4 py-2 rounded">Login</button>
         </div>
         <div id="userNav" class="hidden">
@@ -366,28 +425,29 @@
           <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ml-4">Logout</button>
         </div>
         <div id="adminNav" class="hidden">
-          <button id="adminPanelBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Admin Panel</button>
+          <button id="adminPanelBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Admin
+            Panel</button>
         </div>
       </nav>
-
       <div class="text-center">
         <h2 class="text-4xl font-extrabold mb-4">Revolutionize Education with Online Exams & Certificates</h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto">
-          Empower colleges, schools, and coaching centers with seamless MCQ tests, instant results, and digital certificates.
+          Empower colleges, schools, and coaching centers with seamless MCQ tests, instant results, and digital
+          certificates.
         </p>
-        <button id="viewQuizzesBtn" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold">View Quizzes</button>
-        <button id="createQuizBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold ml-4 hidden" onclick="showSection('quizCreation')">Create Quiz</button>
-        <!-- NEW BUTTON -->
-        <button onclick="showStudyMaterials()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded ml-4">Study Materials</button>
+        <button id="viewQuizzesBtn"
+          class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold">View Quizzes</button>
+        <button id="createQuizBtn"
+          class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold ml-4 hidden"
+          onclick="showSection('quizCreation')">Create Quiz</button>
+        <button onclick="showStudyMaterials()"
+          class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded ml-4">Study Materials</button>
       </div>
     </div>
   </header>
-
-  <!-- Main Content -->
   <main class="container mx-auto px-4 py-16">
-    <!-- Existing Sections (Features, User Registration, Quiz, Results, Admin) -->
-      <!-- Features Section -->
-    <section id="features" class="mb-16">
+    <!-- Features Section -->
+     <section id="features" class="mb-16">
       <h3 class="text-3xl font-bold text-center mb-8">Key Features</h3>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="feature-card bg-white p-6 rounded-lg shadow-md"> <img
@@ -422,76 +482,89 @@
           <p>Automatic grading, percentages, pass/fail, downloadable reports.</p>
         </div>
       </div>
-    </section> <!-- User Registration Section -->
+    </section> 
+    <!-- User Registration Section -->
     <section id="userRegistration" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">User Registration & Login</h3>
       <form id="registerForm" class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Name</label> <input type="text" id="regName"
-            class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Email</label> <input type="email" id="regEmail"
-            class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Password</label> <input type="password"
-            id="regPassword" class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Role</label> <select id="regRole"
-            class="w-full px-4 py-2 border rounded" required>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Name</label><input type="text" id="regName"
+            class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Email</label><input type="email" id="regEmail"
+            class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Password</label><input type="password"
+            id="regPassword" class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Role</label>
+          <select id="regRole" class="w-full px-4 py-2 border rounded" required>
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
             <option value="admin">Admin</option>
-          </select> </div> <button type="submit"
-          class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded font-semibold">Register</button> <button
-          type="button" id="switchToLogin"
+          </select>
+        </div>
+        <button type="submit"
+          class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded font-semibold">Register</button>
+        <button type="button" id="switchToLogin"
           class="mt-4 bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded font-semibold">Already have an account?
           Login</button>
       </form>
       <form id="loginForm" class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md hidden">
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Email</label> <input type="email"
-            id="loginEmail" class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Password</label> <input type="password"
-            id="loginPassword" class="w-full px-4 py-2 border rounded" required> </div> <button type="submit"
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Email</label><input type="email" id="loginEmail"
+            class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Password</label><input type="password"
+            id="loginPassword" class="w-full px-4 py-2 border rounded" required></div>
+        <button type="submit"
           class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-semibold">Login</button>
       </form>
-    </section> <!-- Quiz Creation Section -->
+    </section>
+    <!-- Quiz Creation Section -->
     <section id="quizCreation" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Create Quiz</h3>
       <form id="quizForm" class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Quiz Title</label> <input type="text"
-            id="quizTitle" class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Subject</label> <input type="text"
-            id="quizSubject" class="w-full px-4 py-2 border rounded" required> </div>
-        <div class="mb-4"> <label class="block text-sm font-medium mb-2">Time Limit (minutes)</label> <input
-            type="number" id="quizTime" class="w-full px-4 py-2 border rounded" required> </div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Quiz Title</label><input type="text"
+            id="quizTitle" class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Subject</label><input type="text"
+            id="quizSubject" class="w-full px-4 py-2 border rounded" required></div>
+        <div class="mb-4"><label class="block text-sm font-medium mb-2">Time Limit (minutes)</label><input type="number"
+            id="quizTime" class="w-full px-4 py-2 border rounded" required></div>
         <div id="questionsContainer">
           <h4 class="text-lg font-semibold mb-4">Add Questions</h4>
-          <div class="question-item mb-6"> <label class="block text-sm font-medium mb-2">Question 1</label> <input
-              type="text" placeholder="Enter question" class="w-full px-4 py-2 border rounded mb-2 question-text"
-              required> <input type="text" placeholder="Option A" class="w-full px-4 py-2 border rounded mb-2 option-a"
-              required> <input type="text" placeholder="Option B" class="w-full px-4 py-2 border rounded mb-2 option-b"
-              required> <input type="text" placeholder="Option C" class="w-full px-4 py-2 border rounded mb-2 option-c"
-              required> <input type="text" placeholder="Option D" class="w-full px-4 py-2 border rounded mb-2 option-d"
-              required> <select class="w-full px-4 py-2 border rounded correct">
+          <div class="question-item mb-6">
+            <label class="block text-sm font-medium mb-2">Question 1</label>
+            <input type="text" placeholder="Enter question" class="w-full px-4 py-2 border rounded mb-2 question-text"
+              required>
+            <input type="text" placeholder="Option A" class="w-full px-4 py-2 border rounded mb-2 option-a" required>
+            <input type="text" placeholder="Option B" class="w-full px-4 py-2 border rounded mb-2 option-b" required>
+            <input type="text" placeholder="Option C" class="w-full px-4 py-2 border rounded mb-2 option-c" required>
+            <input type="text" placeholder="Option D" class="w-full px-4 py-2 border rounded mb-2 option-d" required>
+            <select class="w-full px-4 py-2 border rounded correct">
               <option value="a">A</option>
               <option value="b">B</option>
               <option value="c">C</option>
               <option value="d">D</option>
-            </select> </div>
-        </div> <button type="button" id="addQuestionBtn"
-          class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded mr-4">Add Question</button> <button
-          type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Create
+            </select>
+          </div>
+        </div>
+        <button type="button" id="addQuestionBtn"
+          class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded mr-4">Add Question</button>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Create
           Quiz</button>
       </form>
-    </section> <!-- Quiz List Section -->
+    </section>
+    <!-- Quiz List Section -->
     <section id="quizList" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Available Quizzes</h3>
       <div id="quizzesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section> <!-- Take Quiz Section -->
+    </section>
+    <!-- Take Quiz Section -->
     <section id="takeQuiz" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8" id="quizTitleHeader"></h3>
       <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <div id="timer" class="text-right mb-4 text-red-500 font-semibold">Time Left: <span id="timeLeft"></span></div>
-        <form id="quizTakingForm"> <!-- Questions will be dynamically added --> </form> <button id="submitQuizBtn"
+        <form id="quizTakingForm"></form>
+        <button id="submitQuizBtn"
           class="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Submit Quiz</button>
       </div>
-    </section> <!-- Results Section -->
+    </section>
+    <!-- Results Section -->
     <section id="results" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Results</h3>
       <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
@@ -508,7 +581,8 @@
           <tbody id="resultTableBody"></tbody>
         </table>
       </div>
-    </section> <!-- Certificate Section -->
+    </section>
+    <!-- Certificate Section -->
     <section id="certificate" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Certificate of Completion</h3>
       <div class="max-w-lg mx-auto certificate">
@@ -516,11 +590,13 @@
           <h4 class="text-2xl font-bold mb-4">Certificate</h4>
           <p id="certificateText"></p>
           <p id="certificateDate"></p>
-        </div> <button onclick="downloadCertificate()"
-          class="mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-semibold">Download/Print</button>
+        </div>
+        <button onclick="downloadCertificate()"
+          class="mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-semibold">Download</button>
       </div>
-    </section> <!-- Admin Panel Section -->
-    <section id="adminPanel" class="mb-16 hidden">
+    </section>
+
+     <section id="adminPanel" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Admin Panel</h3>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-lg shadow-md">
@@ -560,80 +636,61 @@
     <!-- Study Materials Section -->
     <section id="studyMaterials" class="mb-16 hidden">
       <h3 class="text-3xl font-bold text-center mb-8">Study Materials</h3>
-
-      <!-- Teacher Upload Form -->
       <div id="uploadSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
         <form id="uploadForm">
           <div class="mb-4">
             <label class="block text-sm font-medium mb-2">Upload File</label>
             <input type="file" id="studyFile" class="w-full border p-2 rounded" required>
           </div>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Upload</button>
+          <button type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold">Upload</button>
         </form>
       </div>
-
-      <!-- File List -->
       <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
         <h4 class="text-xl font-semibold mb-4">Available Files</h4>
         <ul id="fileList" class="list-disc list-inside"></ul>
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8">
     <div class="container mx-auto px-4 text-center">
       <p>© 2025 EduQuiz System. All rights reserved.</p>
     </div>
   </footer>
-
   <!-- JavaScript -->
   <script>
-    /* --- Your existing JavaScript code --- */
-     // Global variables
+    // Helper functions for localStorage
+    function getUsers() { return JSON.parse(localStorage.getItem('eduquiz_users') || '[]'); }
+    function saveUsers(users) { localStorage.setItem('eduquiz_users', JSON.stringify(users)); }
+    function getQuizzes() { return JSON.parse(localStorage.getItem('eduquiz_quizzes') || '[]'); }
+    function saveQuizzes(quizzes) { localStorage.setItem('eduquiz_quizzes', JSON.stringify(quizzes)); }
+    function getResults() { return JSON.parse(localStorage.getItem('eduquiz_results') || '[]'); }
+    function saveResults(results) { localStorage.setItem('eduquiz_results', JSON.stringify(results)); }
+    function getFiles() { return JSON.parse(localStorage.getItem('eduquiz_files') || '[]'); }
+    function saveFiles(files) { localStorage.setItem('eduquiz_files', JSON.stringify(files)); }
+
+    // Global state
     let currentUser = null;
     let currentQuiz = null;
+    let questionsArray = [];
     let quizTimer = null;
     let timeLeft = 0;
-    let questionsArray = [];
 
-    // Initialize on load
     window.onload = init;
 
     function init() {
-      loadData();
+      if (!localStorage.getItem('eduquiz_users')) saveUsers([]);
+      if (!localStorage.getItem('eduquiz_quizzes')) saveQuizzes([]);
+      if (!localStorage.getItem('eduquiz_results')) saveResults([]);
+      if (!localStorage.getItem('eduquiz_files')) saveFiles([]);
       checkLoginStatus();
       displayQuizzes();
       displayResults();
     }
 
-    // Data management (simulating localStorage as backend)
-    function loadData() {
-      // In a real backend, this would be API calls
-      if (!localStorage.getItem('eduquiz_users')) localStorage.setItem('eduquiz_users', JSON.stringify([]));
-      if (!localStorage.getItem('eduquiz_quizzes')) localStorage.setItem('eduquiz_quizzes', JSON.stringify([]));
-      if (!localStorage.getItem('eduquiz_results')) localStorage.setItem('eduquiz_results', JSON.stringify([]));
-    }
-
-    function getUsers() { return JSON.parse(localStorage.getItem('eduquiz_users')); }
-    function saveUsers(users) { localStorage.setItem('eduquiz_users', JSON.stringify(users)); }
-
-    function getQuizzes() { return JSON.parse(localStorage.getItem('eduquiz_quizzes')); }
-    function saveQuizzes(quizzes) { localStorage.setItem('eduquiz_quizzes', JSON.stringify(quizzes)); }
-
-    function getResults() { return JSON.parse(localStorage.getItem('eduquiz_results')); }
-    function saveResults(results) { localStorage.setItem('eduquiz_results', JSON.stringify(results)); }
-
-    function checkLoginStatus() {
-      const user = JSON.parse(localStorage.getItem('eduquiz_currentUser') || 'null');
-      if (user) loginSuccess(user);
-    }
-
-    // Event listeners
     document.getElementById('registerBtn').onclick = () => showSection('userRegistration');
     document.getElementById('loginBtn').onclick = () => showSection('userRegistration');
     document.getElementById('logoutBtn').onclick = logout;
-    document.getElementById('adminPanelBtn').onclick = () => showSection('adminPanel');
     document.getElementById('viewQuizzesBtn').onclick = () => showSection('quizList');
     document.getElementById('switchToLogin').onclick = () => {
       document.getElementById('registerForm').classList.add('hidden');
@@ -641,26 +698,13 @@
     };
     document.getElementById('addQuestionBtn').onclick = addQuestion;
 
-    // Forms
-    document.getElementById('registerForm').onsubmit = registerUser;
-    document.getElementById('loginForm').onsubmit = loginUser;
-    document.getElementById('quizForm').onsubmit = createQuiz;
-    document.getElementById('submitQuizBtn').onclick = submitQuiz;
-
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('main section');
-      sections.forEach(s => s.classList.add('hidden'));
-      document.getElementById(sectionId).classList.remove('hidden');
-    }
-
     // Registration
-    function registerUser(e) {
+    document.getElementById('registerForm').onsubmit = function (e) {
       e.preventDefault();
       const name = document.getElementById('regName').value;
       const email = document.getElementById('regEmail').value;
       const password = document.getElementById('regPassword').value;
       const role = document.getElementById('regRole').value;
-
       const users = getUsers();
       if (users.find(u => u.email === email)) {
         alert('User already exists!');
@@ -671,14 +715,13 @@
       saveUsers(users);
       alert('Registration successful! Please login.');
       document.getElementById('registerForm').reset();
-    }
+    };
 
     // Login
-    function loginUser(e) {
+    document.getElementById('loginForm').onsubmit = function (e) {
       e.preventDefault();
       const email = document.getElementById('loginEmail').value;
       const password = document.getElementById('loginPassword').value;
-
       const users = getUsers();
       const user = users.find(u => u.email === email && u.password === password);
       if (!user) {
@@ -686,7 +729,7 @@
         return;
       }
       loginSuccess(user);
-    }
+    };
 
     function loginSuccess(user) {
       currentUser = user;
@@ -698,6 +741,13 @@
       if (user.role === 'teacher') document.getElementById('createQuizBtn').classList.remove('hidden');
       hideAllSections();
       showSection('quizList');
+      displayQuizzes();
+      displayResults();
+    }
+
+    function checkLoginStatus() {
+      const user = JSON.parse(localStorage.getItem('eduquiz_currentUser') || 'null');
+      if (user) loginSuccess(user);
     }
 
     function logout() {
@@ -711,25 +761,18 @@
       showSection('features');
     }
 
-    // Quiz Creation
-    function addQuestion() {
-      const container = document.getElementById('questionsContainer');
-      const questionCount = container.querySelectorAll('.question-item').length + 1;
-      const questionItem = document.createElement('div');
-      questionItem.className = 'question-item mb-6';
-      questionItem.innerHTML = `
-                <label class="block text-sm font-medium mb-2">Question ${questionCount}</label>
-                <input type="text" placeholder="Enter question" class="w-full px-4 py-2 border rounded mb-2 question-text" required>
-                <input type="text" placeholder="Option A" class="w-full px-4 py-2 border rounded mb-2 option-a" required>
-                <input type="text" placeholder="Option B" class="w-full px-4 py-2 border rounded mb-2 option-b" required>
-                <input type="text" placeholder="Option C" class="w-full px-4 py-2 border rounded mb-2 option-c" required>
-                <input type="text" placeholder="Option D" class="w-full px-4 py-2 border rounded mb-2 option-d" required>
-                <select class="w-full px-4 py-2 border rounded correct"><option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option></select>
-            `;
-      container.appendChild(questionItem);
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(s => s.classList.add('hidden'));
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+    function hideAllSections() {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(s => s.classList.add('hidden'));
     }
 
-    function createQuiz(e) {
+    // Quiz Creation
+    document.getElementById('quizForm').onsubmit = function (e) {
       e.preventDefault();
       if (!currentUser || currentUser.role !== 'teacher') {
         alert('Only teachers can create quizzes!');
@@ -761,9 +804,31 @@
       displayQuizzes();
       hideAllSections();
       showSection('quizList');
+    };
+
+    function addQuestion() {
+      const container = document.getElementById('questionsContainer');
+      const questionCount = container.querySelectorAll('.question-item').length + 1;
+      const questionItem = document.createElement('div');
+      questionItem.className = 'question-item mb-6';
+      questionItem.innerHTML = `
+        <label class="block text-sm font-medium mb-2">Question ${questionCount}</label>
+        <input type="text" placeholder="Enter question" class="w-full px-4 py-2 border rounded mb-2 question-text" required>
+        <input type="text" placeholder="Option A" class="w-full px-4 py-2 border rounded mb-2 option-a" required>
+        <input type="text" placeholder="Option B" class="w-full px-4 py-2 border rounded mb-2 option-b" required>
+        <input type="text" placeholder="Option C" class="w-full px-4 py-2 border rounded mb-2 option-c" required>
+        <input type="text" placeholder="Option D" class="w-full px-4 py-2 border rounded mb-2 option-d" required>
+        <select class="w-full px-4 py-2 border rounded correct">
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+        </select>
+      `;
+      container.appendChild(questionItem);
     }
 
-    // Display Quizzes
+    // Display Quizzes (with Delete button for creator teacher)
     function displayQuizzes() {
       const quizzes = getQuizzes();
       const container = document.getElementById('quizzesContainer');
@@ -772,27 +837,46 @@
         const card = document.createElement('div');
         card.className = 'bg-white p-6 rounded-lg shadow-md';
         card.innerHTML = `
-                    <h4 class="text-xl font-semibold mb-2">${quiz.title}</h4>
-                    <p class="mb-2">Subject: ${quiz.subject}</p>
-                    <p class="mb-4">Questions: ${quiz.questions.length}</p>
-                    <button class="take-quiz-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded" data-quiz-id="${quiz.id}">Take Quiz</button>
-                `;
+          <h4 class="text-xl font-semibold mb-2">${quiz.title}</h4>
+          <p class="mb-2">Subject: ${quiz.subject}</p>
+          <p class="mb-4">Questions: ${quiz.questions.length}</p>
+          <button class="take-quiz-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded" data-quiz-id="${quiz.id}">Take Quiz</button>
+          ${currentUser && currentUser.role === 'teacher' && quiz.creator === currentUser.email
+            ? `<button class="delete-quiz-btn bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded ml-2" data-quiz-id="${quiz.id}">Delete Quiz</button>`
+            : ''
+          }
+        `;
         container.appendChild(card);
       });
 
       document.querySelectorAll('.take-quiz-btn').forEach(btn => {
         btn.onclick = function () { startQuiz(parseInt(this.dataset.quizId)); };
       });
+
+      document.querySelectorAll('.delete-quiz-btn').forEach(btn => {
+        btn.onclick = function () {
+          const quizId = parseInt(this.getAttribute('data-quiz-id'));
+          if (confirm("Are you sure you want to delete this quiz?")) {
+            deleteQuiz(quizId);
+          }
+        };
+      });
+    }
+
+    function deleteQuiz(quizId) {
+      let quizzes = getQuizzes();
+      quizzes = quizzes.filter(q => q.id !== quizId || q.creator !== currentUser.email);
+      saveQuizzes(quizzes);
+      alert('Quiz deleted successfully!');
+      displayQuizzes();
     }
 
     // Take Quiz
     function startQuiz(quizId) {
       currentQuiz = getQuizzes().find(q => q.id === quizId);
       if (!currentQuiz) return;
-
       questionsArray = [...currentQuiz.questions];
-      shuffleArray(questionsArray); // Random order
-
+      shuffleArray(questionsArray);
       document.getElementById('quizTitleHeader').textContent = currentQuiz.title;
       timeLeft = currentQuiz.timeLimit * 60;
       updateTimer();
@@ -804,12 +888,12 @@
         const questionDiv = document.createElement('div');
         questionDiv.className = 'mb-6';
         questionDiv.innerHTML = `
-                    <h5 class="text-lg mb-4">${index + 1}. ${q.question}</h5>
-                    <label class="block mb-2"><input type="radio" name="q${index}" value="a" class="mr-2" required>A) ${q.options.a}</label>
-                    <label class="block mb-2"><input type="radio" name="q${index}" value="b" class="mr-2" required>B) ${q.options.b}</label>
-                    <label class="block mb-2"><input type="radio" name="q${index}" value="c" class="mr-2" required>C) ${q.options.c}</label>
-                    <label class="block mb-2"><input type="radio" name="q${index}" value="d" class="mr-2" required>D) ${q.options.d}</label>
-                `;
+          <h5 class="text-lg mb-4">${index + 1}. ${q.question}</h5>
+          <label class="block mb-2"><input type="radio" name="q${index}" value="a" class="mr-2" required>A) ${q.options.a}</label>
+          <label class="block mb-2"><input type="radio" name="q${index}" value="b" class="mr-2" required>B) ${q.options.b}</label>
+          <label class="block mb-2"><input type="radio" name="q${index}" value="c" class="mr-2" required>C) ${q.options.c}</label>
+          <label class="block mb-2"><input type="radio" name="q${index}" value="d" class="mr-2" required>D) ${q.options.d}</label>
+        `;
         form.appendChild(questionDiv);
       });
 
@@ -828,35 +912,27 @@
       document.getElementById('timeLeft').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     }
 
+    document.getElementById('submitQuizBtn').onclick = submitQuiz;
+
     function submitQuiz() {
       if (quizTimer) clearInterval(quizTimer);
       const answers = [];
       for (let i = 0; i < questionsArray.length; i++) {
-        const question = questionsArray[i];
         const answer = new FormData(document.getElementById('quizTakingForm')).get(`q${i}`);
         answers.push({ questionIndex: i, givenAnswer: answer });
       }
-
       let correct = 0;
       answers.forEach((ans, idx) => {
         if (ans.givenAnswer === questionsArray[idx].correct) correct++;
       });
-
       const score = correct;
       const total = questionsArray.length;
       const percentage = Math.round((correct / total) * 100);
       const status = percentage >= 50 ? 'Passed' : 'Failed';
-
       const result = { quizId: currentQuiz.id, userEmail: currentUser.email, score, total, percentage, status, date: new Date().toISOString() };
       const results = getResults();
       results.push(result);
       saveResults(results);
-
-      // Save answers for security/audit
-      const audit = { quizId: currentQuiz.id, userId: currentUser.id, answers, timeStamp: new Date().toISOString() };
-      const audits = JSON.parse(localStorage.getItem('eduquiz_audits') || '[]');
-      audits.push(audit);
-      localStorage.setItem('eduquiz_audits', JSON.stringify(audits));
 
       displayResults();
       generateCertificate(currentQuiz, percentage, status);
@@ -864,7 +940,6 @@
       showSection('certificate');
     }
 
-    // Shuffle Array for Random Questions
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -882,89 +957,58 @@
         const quiz = quizzes.find(q => q.id === result.quizId);
         const tr = document.createElement('tr');
         tr.innerHTML = `
-                    <td>${quiz ? quiz.title : 'Unknown'}</td>
-                    <td>${result.score}/${result.total}</td>
-                    <td>${result.percentage}%</td>
-                    <td>${result.status}</td>
-                    <td><button class="download-result bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" data-result-id="${result.id}">Download</button></td>
-                `;
+          <td>${quiz ? quiz.title : 'Unknown'}</td>
+          <td>${result.score}/${result.total}</td>
+          <td>${result.percentage}%</td>
+          <td>${result.status}</td>
+          <td><button class="download-result bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" data-result-id="${result.id}">Download</button></td>
+        `;
         tbody.appendChild(tr);
       });
-
-      // Admin Panel Updates
-      if (currentUser && currentUser.role === 'admin') {
-        const usersTable = document.getElementById('usersTable');
-        usersTable.innerHTML = '';
-        getUsers().forEach(user => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${user.name}</td><td>${user.email}</td><td>${user.role}</td>`;
-          usersTable.appendChild(tr);
-        });
-
-        const quizBankList = document.getElementById('quizBankList');
-        quizBankList.innerHTML = '';
-        getQuizzes().forEach(quiz => {
-          const li = document.createElement('li');
-          li.textContent = `${quiz.title} (${quiz.questions.length} questions)`;
-          quizBankList.appendChild(li);
-        });
-
-        const adminResultsTable = document.getElementById('adminResultsTable');
-        adminResultsTable.innerHTML = '';
-        results.forEach(result => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${result.userEmail}</td><td>${quiz ? quiz.title : 'Unknown'}</td><td>${result.score}/${result.total}</td><td>${result.status}</td>`;
-          adminResultsTable.appendChild(tr);
-        });
-      }
     }
 
     // Generate Certificate
     function generateCertificate(quiz, percentage, status) {
       const certificateText = `This certifies that ${currentUser.name} has completed the Online Exam in ${quiz.subject} with ${percentage}% score and status: ${status}.`;
       const certificateDate = `Date: ${new Date().toLocaleDateString()}`;
-
       document.getElementById('certificateText').textContent = certificateText;
       document.getElementById('certificateDate').textContent = certificateDate;
     }
-    // Download Certificate (simple text download)
+
     function downloadCertificate() {
-      const content = document.getElementById('certificateContent').innerText;
-      const blob = new Blob([content], { type: 'txt/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Certificate.txt';
-      link.click();
-
-    }
-
-    function hideAllSections() {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(s => s.classList.add('hidden'));
-    }
-    document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('download-result')) {
-        const tr = e.target.closest('tr');
-        const cells = tr.querySelectorAll('td');
-        const resultText = `
-Quiz: ${cells[0].innerText}
-Score: ${cells[1].innerText}
-Percentage: ${cells[2].innerText}
-Status: ${cells[3].innerText}
-        `;
-        const blob = new Blob([resultText], { type: 'text/plain' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'Result.txt';
-        link.click();
+      if (!currentUser || !currentQuiz) {
+        alert("Please complete a quiz and login first.");
+        return;
       }
-    });
-  
-    // File storage in localStorage
-    function getFiles() { return JSON.parse(localStorage.getItem('eduquiz_files') || '[]'); }
-    function saveFiles(files) { localStorage.setItem('eduquiz_files', JSON.stringify(files)); }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" });
+      const name = currentUser.name;
+      const quizTitle = currentQuiz.title;
+      const subject = currentQuiz.subject;
+      const certificateText = document.getElementById('certificateText').textContent;
+      const percentageMatch = certificateText.match(/(\d+)%/);
+      const statusMatch = certificateText.match(/status: (\w+)/i);
+      const percentage = percentageMatch ? percentageMatch[1] : 'N/A';
+      const status = statusMatch ? statusMatch[1] : 'N/A';
+      const date = new Date().toLocaleDateString();
+      doc.setTextColor(30, 30, 30);
+      doc.setFontSize(30);
+      doc.setFont("helvetica", "bold");
+      doc.text("Certificate of Completion", doc.internal.pageSize.getWidth() / 2, 100, { align: "center" });
+      doc.setLineWidth(1);
+      doc.setDrawColor(16, 185, 129);
+      doc.line(100, 110, doc.internal.pageSize.getWidth() - 100, 110);
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "normal");
+      const text = `This certifies that ${name} has successfully completed the Online Exam in ${subject} (${quizTitle}) with a score of ${percentage}% and status: ${status}.`;
+      const splitText = doc.splitTextToSize(text, doc.internal.pageSize.getWidth() - 200);
+      doc.text(splitText, doc.internal.pageSize.getWidth() / 2, 160, { align: "center" });
+      doc.text(`Date: ${date}`, 100, doc.internal.pageSize.getHeight() - 100);
+      doc.text("_____________________", doc.internal.pageSize.getWidth() - 200, doc.internal.pageSize.getHeight() - 100);
+      doc.text("Authorized Signature", doc.internal.pageSize.getWidth() - 200, doc.internal.pageSize.getHeight() - 80);
+      doc.save("Certificate.pdf");
+    }
 
-    // Show Study Materials Section
     function showStudyMaterials() {
       hideAllSections();
       document.getElementById('studyMaterials').classList.remove('hidden');
@@ -976,13 +1020,11 @@ Status: ${cells[3].innerText}
       displayFiles();
     }
 
-    // Upload File (Teachers only)
     document.getElementById('uploadForm').onsubmit = function (e) {
       e.preventDefault();
       const fileInput = document.getElementById('studyFile');
       const file = fileInput.files[0];
       if (!file) return;
-
       const reader = new FileReader();
       reader.onload = function (event) {
         const files = getFiles();
@@ -1000,15 +1042,7 @@ Status: ${cells[3].innerText}
       };
       reader.readAsDataURL(file);
     };
-     // Delete File (Teachers only)
-    function deleteFile(fileId) {
-      let files = getFiles();
-      files = files.filter(file => file.id !== fileId);
-      saveFiles(files);
-      displayFiles();
-    }
 
-     // Display Files
     function displayFiles() {
       const files = getFiles();
       const list = document.getElementById('fileList');
@@ -1021,27 +1055,21 @@ Status: ${cells[3].innerText}
           (Uploaded by ${file.uploader})
           <a href="${file.data}" download="${file.name}" class="ml-2 text-blue-600 underline">Download</a>
         `;
-
-        // If teacher, add delete button
         if (currentUser?.role === 'teacher') {
           const deleteBtn = document.createElement("button");
           deleteBtn.textContent = "Delete";
           deleteBtn.className = "ml-2 bg-red-500 text-white px-2 py-1 rounded text-sm hover:bg-red-600";
-          deleteBtn.onclick = () => deleteFile(file.id);
+          deleteBtn.onclick = () => {
+            let updated = getFiles().filter(f => f.id !== file.id);
+            saveFiles(updated);
+            displayFiles();
+          };
           li.appendChild(deleteBtn);
         }
-
         list.appendChild(li);
       });
     }
-
-    // Hide all sections
-    function hideAllSections() {
-      const sections = document.querySelectorAll('main section');
-      sections.forEach(s => s.classList.add('hidden'));
-    }
   </script>
-  </script>
-
 </body>
+
 </html>
